@@ -9,6 +9,10 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    func lucy () {
+        let music = ["개화","히어로","조깅"]
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
