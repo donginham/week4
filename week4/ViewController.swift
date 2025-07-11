@@ -29,6 +29,7 @@ class ViewController: UIViewController {
         print(6)
         
         //commit 확인용
+        //빌드가 잘 될 때 commit하기
         
     }
 
