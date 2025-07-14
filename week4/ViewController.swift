@@ -7,15 +7,8 @@
 
 import UIKit
 
+
 class ViewController: UIViewController {
-    class band {
-    func lucy () {
-        let music = ["개화","히어로","조깅"]
-        for i in 0...music.count {
-            print(music[i])
-        }
-    }
-}
     
     override func viewDidLoad() {
         super.viewDidLoad()
