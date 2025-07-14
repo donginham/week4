@@ -45,30 +45,22 @@ class TravelTableViewController: UITableViewController {
         topTitleLabel.font = .systemFont(ofSize: 20, weight: .bold)
         topTitleLabel.textAlignment = .center
     }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return magazine.count
     }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "travelCell", for: indexPath) as! TravelTableViewCell
         
-        cell.travelIntoduce.text = magazine[indexPath.row].subtitle
-        cell.travelTitleLabel.text = magazine[indexPath.row].title
-        cell.travelImage.kf.setImage(with: URL(string: magazine[indexPath.row].photo_image)!)
-
-        
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyMMdd"
-        let convertDate = dateFormatter.date(from: magazine[indexPath.row].date)
-        //스트링 값을 뽑아  date 타입으로 변환
-        let travelDateForMatter =  DateFormatter()
-        
-        travelDateForMatter.dateFormat = "yy년 M월 d일"
-        let converStr = travelDateForMatter.string(from: convertDate!)
-        
-        cell.dateLabel.text = "\(converStr)"
+        let myText = magazine[indexPath.row]
+        cell.configureImageView(myText: myText)
+        cell.configuretravelLabels(myText: myText)
+        cell.configureDateLabel(myText: myText)
         return cell
     }
+    
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 400
     }

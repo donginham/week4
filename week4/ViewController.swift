@@ -10,26 +10,32 @@ import Toast
 
 class ViewController: UIViewController {
     
+    @IBOutlet var txtfield: UITextField!
+    @IBOutlet var resultLabel: UILabel!
+    var numbers : Int = 0
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        print(0)
-        print(1)
-        print(2)
-        print(3)
-        print(4)
-        print(5)
-        print(6)
+        resultLabel.numberOfLines = 0
         
-        //commit 확인용
-        //빌드가 잘 될 때 commit하기
         
     }
-
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         view.makeToast("토스트 오픈소스 확인",duration: 2,position: .center)
     }
+    @IBAction func gameStart(_ sender: UIButton) {
+        let gaming = txtfield.text ?? ""
+           if let gameNumber = Int(gaming) {
+               resultLabel.text = ""
+               for i in 1...gameNumber {
+                   let count = String(i).filter { $0 == "3" || $0 == "6" || $0 == "9" }.count
+                   if count > 0 {
+                       resultLabel.text! += "짝!,"
+                   } else {
+                       resultLabel.text! += "\(i),"
+                   }
+               }
+           }
+    }
 }
-

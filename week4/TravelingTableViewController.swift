@@ -7,19 +7,31 @@
 
 import UIKit
 
+struct Travel {
+    let name: String
+    let overview: String
+    let date: String
+    let like: Bool?
+}
+
 class TravelingTableViewController: UITableViewController {
    // autimaticDimension 셀의 높이를 유동적으로 조작해주는 커맨드? self Sizing Cell - expandableCell
     let format = DateFormatter() // 연산 비용,인스턴스 생성 비용이 큼
-    
+    let travel = [Travel(name: "서울", overview: "선유도공원", date: "250401",like: false),
+                  Travel(name: "대전", overview: "성심당", date: "250401",like: true),
+                  Travel(name: "대구", overview: "생선", date: "250401",like: true),
+                  Travel(name: "울산", overview: "바위", date: "250401",like: false)
+    ]
     override func viewDidLoad() {
         super.viewDidLoad()
         //XIB Cell로 구성하는 순간, 필요한 코드
         let xib = UINib(nibName: "TravelingTableViewCell", bundle: nil)
         tableView.register(xib, forCellReuseIdentifier: "TravelingTableViewCell")
        // tableView.rowHeight = UITableView.automaticDimension 전체 테이블 뷰에 설정
+        setBackground()
     }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return travel.count
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TravelingTableViewCell",for: indexPath) as! TravelingTableViewCell
@@ -28,9 +40,12 @@ class TravelingTableViewController: UITableViewController {
         format.dateFormat = "yy년 MM월 dd일 hh시"
         let value = format.string(from:Date())
         
+        let row = travel[indexPath.row]
+        
         cell.dateLabel.text = value
-        cell.TravelingLabel.text = "sadassadsadadasdasasdasdasdasdasdssasdasdsadadasdasdasdddds"
-        cell.TravelingLabel.numberOfLines = 0
+        cell.dateLabel.text = "\(value), \(row.overview)"
+        cell.configureTravelLabel(row: row)
+        
         return cell
         //테이블 뷰에 셀을 등록하는 과정이 필요
     }
