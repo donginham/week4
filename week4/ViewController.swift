@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import Toast
 
 class ViewController: UIViewController {
     
@@ -26,6 +26,10 @@ class ViewController: UIViewController {
         
     }
 
-
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        view.makeToast("토스트 오픈소스 확인",duration: 2,position: .center)
+    }
 }
 
