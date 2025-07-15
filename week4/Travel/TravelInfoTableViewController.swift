@@ -129,33 +129,37 @@ class TravelInfoTableViewController: UITableViewController {
         super.viewDidLoad()
         let xib = UINib(nibName: TravelInfoTableViewCell.info, bundle: nil)
         tableView.register(xib, forCellReuseIdentifier: TravelInfoTableViewCell.info)
+        //일반적인 여행정보들 셀 연결
+        let ADXib = UINib(nibName: ADInfoTableViewCell.ADInfo, bundle: nil)
+        tableView.register(ADXib, forCellReuseIdentifier: ADInfoTableViewCell.ADInfo)
+        //얘는 광고일 때만 나오는거
         
     }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         travel.count
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: TravelInfoTableViewCell.info, for: indexPath) as! TravelInfoTableViewCell
         let myInfo = travel[indexPath.row]
-        cell.configureImage(myInfo: myInfo)
-        cell.configureInfoLabels(myInfo: myInfo)
-        cell.configureLabel(myInfo: myInfo)
-        
-        if myInfo.ad == true
-        {
-            cell.titleInfo.text = myInfo.title
-            cell.titleInfo.textAlignment = NSTextAlignment.center
-            cell.titleInfo.translatesAutoresizingMaskIntoConstraints = false
-            cell.titleInfo.leftAnchor.constraint(equalTo: cell.leftAnchor, constant: 100).isActive = true
-            cell.titleInfo.topAnchor.constraint(equalTo: cell.safeAreaLayoutGuide.topAnchor, constant: 50).isActive = true
-            cell.introduceInfo.text = ""
-            cell.gradeInfo.text = ""
+       
+        if myInfo.ad == false {
+            let cell = tableView.dequeueReusableCell(withIdentifier: TravelInfoTableViewCell.info, for: indexPath) as! TravelInfoTableViewCell
+            cell.configureImage(myInfo: myInfo)
+            cell.configureInfoLabels(myInfo: myInfo)
+            cell.configureLabel(myInfo: myInfo)
             
+            return cell
+        } else {
+            let ADCell = tableView.dequeueReusableCell(withIdentifier: ADInfoTableViewCell.ADInfo, for: indexPath) as! ADInfoTableViewCell
+            ADCell.configureAD(myInfo: myInfo)
+            return ADCell
         }
-        return cell
     }
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
-        return 200
+        let myInfo = travel[indexPath.row]
+        if myInfo.ad == true {
+            return 100
+        } else {
+            return 151
+        }
     }
 }

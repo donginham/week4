@@ -43,9 +43,18 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aIl-2b-rWG">
-                        <rect key="frame" x="10" y="83" width="250" height="21"/>
+                        <rect key="frame" x="95" y="83" width="250" height="21"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="250" id="aLH-g8-Frs"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nvh-uT-XKr">
+                        <rect key="frame" x="10" y="83" width="85" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="85" id="cow-EV-YNO"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
@@ -54,10 +63,12 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="otR-fR-phe" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="2Ja-ZH-Idm"/>
+                    <constraint firstItem="Nvh-uT-XKr" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="7Bf-mQ-VGo"/>
                     <constraint firstItem="otR-fR-phe" firstAttribute="top" secondItem="umu-fC-Ynd" secondAttribute="bottom" constant="5" id="Chh-Oq-GVu"/>
                     <constraint firstItem="aIl-2b-rWG" firstAttribute="top" secondItem="otR-fR-phe" secondAttribute="bottom" constant="5" id="HYL-Na-NHg"/>
-                    <constraint firstItem="aIl-2b-rWG" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="TTu-tJ-QHP"/>
                     <constraint firstAttribute="trailing" secondItem="VWz-MC-vT2" secondAttribute="trailing" constant="10" id="Tnc-dt-WQU"/>
+                    <constraint firstItem="Nvh-uT-XKr" firstAttribute="top" secondItem="otR-fR-phe" secondAttribute="bottom" constant="5" id="Wlt-tN-0P9"/>
+                    <constraint firstItem="aIl-2b-rWG" firstAttribute="leading" secondItem="Nvh-uT-XKr" secondAttribute="trailing" id="dti-fG-ofy"/>
                     <constraint firstItem="umu-fC-Ynd" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="fqU-yh-8Bh"/>
                     <constraint firstAttribute="bottom" secondItem="VWz-MC-vT2" secondAttribute="bottom" constant="15" id="i8s-AP-k6k"/>
                     <constraint firstAttribute="bottom" secondItem="VWz-MC-vT2" secondAttribute="bottom" constant="15" id="jEY-Aq-lp9"/>
@@ -70,6 +81,7 @@
                 <outlet property="gradeInfo" destination="aIl-2b-rWG" id="SnC-dK-MLj"/>
                 <outlet property="imageInfo" destination="VWz-MC-vT2" id="kdE-NW-p1s"/>
                 <outlet property="introduceInfo" destination="otR-fR-phe" id="TeK-ww-eSa"/>
+                <outlet property="starLabel" destination="Nvh-uT-XKr" id="zBG-Yt-vjo"/>
                 <outlet property="titleInfo" destination="umu-fC-Ynd" id="z8j-r1-OR8"/>
             </connections>
             <point key="canvasLocation" x="232.82442748091603" y="57.394366197183103"/>
