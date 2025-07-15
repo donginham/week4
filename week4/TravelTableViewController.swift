@@ -41,9 +41,7 @@ class TravelTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        topTitleLabel.text = "SeSAC TRAVEL"
-        topTitleLabel.font = .systemFont(ofSize: 20, weight: .bold)
-        topTitleLabel.textAlignment = .center
+        configureTitle(title: topTitleLabel)
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -51,16 +49,18 @@ class TravelTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "travelCell", for: indexPath) as! TravelTableViewCell
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: TravelTableViewCell.identifier, for: indexPath) as! TravelTableViewCell
         let myText = magazine[indexPath.row]
         cell.configureImageView(myText: myText)
         cell.configuretravelLabels(myText: myText)
         cell.configureDateLabel(myText: myText)
         return cell
     }
-    
+    func configureTitle(title: UILabel) {
+        title.text = "SeSAC TRAVEL"
+        title.font = .systemFont(ofSize: 20, weight: .bold)
+        title.textAlignment = .center
+    }
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 400
     }

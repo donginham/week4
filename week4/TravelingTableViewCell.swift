@@ -10,13 +10,16 @@ import UIKit
 class TravelingTableViewCell: UITableViewCell {
 
     @IBOutlet var dateLabel: UILabel!
+    //let dateLabel: UILabel() - 거의 같은코드, 쟤도 인스턴스임
     @IBOutlet var TravelingLabel: UILabel!
+    static let identifier = "TravelingTableViewCell"
+   // let color = Color()
     
     override func awakeFromNib() {
         super.awakeFromNib()
        
         TravelingLabel.numberOfLines = 0
-        dateLabel.backgroundColor = .clear
+        dateLabel.backgroundColor = Color.jackClear // static으로 선언했기 때문에 따로 인스턴스를 생성하지 않더라도 바로 사용 가능
         TravelingLabel.numberOfLines = 0
         TravelingLabel.backgroundColor = .clear
         TravelingLabel.textColor = .black

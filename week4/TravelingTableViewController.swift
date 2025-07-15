@@ -22,11 +22,15 @@ class TravelingTableViewController: UITableViewController {
                   Travel(name: "대구", overview: "생선", date: "250401",like: true),
                   Travel(name: "울산", overview: "바위", date: "250401",like: false)
     ]
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         //XIB Cell로 구성하는 순간, 필요한 코드
-        let xib = UINib(nibName: "TravelingTableViewCell", bundle: nil)
-        tableView.register(xib, forCellReuseIdentifier: "TravelingTableViewCell")
+        let xib = UINib(nibName: TravelingTableViewCell.identifier, bundle: nil)
+        tableView.register(xib, forCellReuseIdentifier: TravelingTableViewCell.identifier)
+        
        // tableView.rowHeight = UITableView.automaticDimension 전체 테이블 뷰에 설정
         setBackground()
     }
@@ -34,7 +38,7 @@ class TravelingTableViewController: UITableViewController {
         return travel.count
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TravelingTableViewCell",for: indexPath) as! TravelingTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: TravelingTableViewCell.identifier,for: indexPath) as! TravelingTableViewCell
         print(#function)
         
         format.dateFormat = "yy년 MM월 dd일 hh시"

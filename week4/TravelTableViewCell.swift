@@ -16,6 +16,7 @@ class TravelTableViewCell: UITableViewCell {
     @IBOutlet var travelTitleLabel: UILabel!
     @IBOutlet var travelIntoduce: UILabel!
     @IBOutlet var dateLabel: UILabel!
+    static let identifier = "travelCell"
     
     override func awakeFromNib() {
         super.awakeFromNib()
