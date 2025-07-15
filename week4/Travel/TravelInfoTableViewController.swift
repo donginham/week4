@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import Kingfisher
+
 struct TravelInfo {
     var title: String?
     var description: String?
@@ -140,18 +142,60 @@ class TravelInfoTableViewController: UITableViewController {
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let myInfo = travel[indexPath.row]
-       
         if myInfo.ad == false {
             let cell = tableView.dequeueReusableCell(withIdentifier: TravelInfoTableViewCell.info, for: indexPath) as! TravelInfoTableViewCell
             cell.configureImage(myInfo: myInfo)
             cell.configureInfoLabels(myInfo: myInfo)
             cell.configureLabel(myInfo: myInfo)
-            
             return cell
         } else {
             let ADCell = tableView.dequeueReusableCell(withIdentifier: ADInfoTableViewCell.ADInfo, for: indexPath) as! ADInfoTableViewCell
             ADCell.configureAD(myInfo: myInfo)
             return ADCell
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let myInfo = travel[indexPath.row]
+        if myInfo.ad == false {
+            let introView = "IntroViewController"
+            let introStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let intro = introStoryboard.instantiateViewController(withIdentifier: introView) as! IntroViewController
+            navigationController?.pushViewController(intro, animated: true)
+            intro.view.backgroundColor = .white
+            //이거 없으면 에러남; 이상한..
+            
+            intro.backButton.setTitle("다른 관광지도 보러가기", for: .normal)
+            intro.backButton.tintColor = .white
+            intro.backButton.layer.cornerRadius = 10
+            intro.backButton.backgroundColor = .systemTeal
+            
+            if let clickedImage = myInfo.travel_image {
+               intro.introImage.kf.setImage(with: URL(string: clickedImage))
+            }
+            if let clickedTitle = myInfo.title {
+                intro.introTitle.text = clickedTitle
+        }
+            if let clickedSubtitle = myInfo.description {
+                intro.introSubtitle.text = clickedSubtitle
+            }
+            intro.introTitle.font = .systemFont(ofSize: 30, weight: .bold)
+            intro.introSubtitle.font = .systemFont(ofSize: 20, weight: .bold)
+            intro.introImage.layer.cornerRadius = 10
+        } else {
+            let ADView = "ADViewController"
+            let ADStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let AD = ADStoryboard.instantiateViewController(withIdentifier: ADView) as! ADViewController
+            AD.view.backgroundColor = .white
+            AD.ADBackbutton.setImage(UIImage(systemName: "xmark"), for: .normal)
+            AD.ADBackbutton.setTitle("", for: .normal)
+            AD.ADLabel.font = .systemFont(ofSize: 25, weight: .bold)
+            AD.ADLabel.numberOfLines = 0
+            AD.ADLabel.textAlignment = .center
+            AD.ADLabel.text = myInfo.title
+            
+            AD.modalPresentationStyle = .fullScreen
+            present(AD,animated: true)
         }
     }
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

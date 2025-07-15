@@ -19,12 +19,27 @@
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="226-NT-rEx">
                         <rect key="frame" x="15" y="10" width="290" height="45"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z9N-kA-GAb">
+                                <rect key="frame" x="237" y="3" width="50" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="68v-s7-hi2"/>
+                                    <constraint firstAttribute="height" constant="25" id="keP-fk-SSt"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain"/>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Z9N-kA-GAb" secondAttribute="trailing" constant="3" id="J0J-gd-7Cd"/>
+                            <constraint firstItem="Z9N-kA-GAb" firstAttribute="top" secondItem="226-NT-rEx" secondAttribute="top" constant="3" id="Oap-EN-d6S"/>
+                        </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="emr-rU-k8D">
-                        <rect key="frame" x="35" y="12.666666666666664" width="250" height="40"/>
+                        <rect key="frame" x="45" y="12.666666666666664" width="230" height="40"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="250" id="3Nu-5t-gHW"/>
+                            <constraint firstAttribute="width" constant="230" id="3Nu-5t-gHW"/>
                             <constraint firstAttribute="height" constant="40" id="ZRG-q7-XeG"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -43,6 +58,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="ADButton" destination="Z9N-kA-GAb" id="g5b-DZ-lub"/>
                 <outlet property="adTitleLabel" destination="emr-rU-k8D" id="pp2-C7-TAp"/>
                 <outlet property="colorView" destination="226-NT-rEx" id="L46-hF-nCi"/>
             </connections>

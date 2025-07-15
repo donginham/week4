@@ -22,7 +22,7 @@ class TravelInfoTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        
+       
     }
     
     func configureImage (myInfo:TravelInfo) {
@@ -33,7 +33,7 @@ class TravelInfoTableViewCell: UITableViewCell {
     
     func configureInfoLabels(myInfo:TravelInfo) {
         titleInfo.text = myInfo.title
-titleInfo.font = .systemFont(ofSize: 20,weight: .bold)
+        titleInfo.font = .systemFont(ofSize: 20,weight: .bold)
         titleInfo.numberOfLines = 0
         introduceInfo.text = myInfo.description
         introduceInfo.textColor = .lightGray
@@ -66,8 +66,6 @@ titleInfo.font = .systemFont(ofSize: 20,weight: .bold)
                 starImoji = "★★★★★"
             }
         }
-        
         return starImoji
-        
     }
 }

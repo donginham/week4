@@ -43,7 +43,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aIl-2b-rWG">
-                        <rect key="frame" x="95" y="83" width="250" height="21"/>
+                        <rect key="frame" x="85" y="83" width="250" height="21"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="250" id="aLH-g8-Frs"/>
                         </constraints>
@@ -52,9 +52,9 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nvh-uT-XKr">
-                        <rect key="frame" x="10" y="83" width="85" height="21"/>
+                        <rect key="frame" x="10" y="83" width="75" height="21"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="85" id="cow-EV-YNO"/>
+                            <constraint firstAttribute="width" constant="75" id="cow-EV-YNO"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
